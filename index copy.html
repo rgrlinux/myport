@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Landing | CSS Puro</title>
+    
+    <!-- Metatags SEO -->
+    <meta name="description" content="Landing page moderna desenvolvida com CSS puro e HTML semântico">
+    <meta name="keywords" content="landing page, css moderno, html semântico, performance">
+    <meta name="author" content="Seu Nome">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Font Awesome (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (opcional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload crítico -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+</head>
+<body class="no-js">
+    <!-- Aviso para JS desabilitado -->
+    <noscript>
+        <div class="noscript-warning">
+            <p>⚠️ JavaScript está desabilitado. Algumas funcionalidades podem não funcionar.</p>
+        </div>
+    </noscript>
+    
+    <!-- Skip link para acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+    
+    <!-- Header / Menu Fixo -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header__inner">
+                <!-- Logo -->
+                <a href="#" class="logo" aria-label="Voltar para o início">
+                    <span class="logo__mark">◈</span>
+                    <span class="logo__text">ModernCSS</span>
+                </a>
+                
+                <!-- Navegação Principal -->
+                <nav class="nav" role="navigation" aria-label="Navegação principal">
+                    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
+                        <span class="nav__toggle-icon"></span>
+                    </button>
+                    
+                    <ul class="nav__menu" id="nav-menu">
+                        <li><a href="#home" class="nav__link active" data-section="home">Home</a></li>
+                        <li><a href="#about" class="nav__link" data-section="about">Sobre</a></li>
+                        <li><a href="#services" class="nav__link" data-section="services">Serviços</a></li>
+                        <li><a href="#portfolio" class="nav__link" data-section="portfolio">Portfólio</a></li>
+                        <li><a href="#contact" class="nav__link" data-section="contact">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Utilitários do Header -->
+                <div class="header__utils">
+                    <!-- Seletor de Idioma -->
+                    <div class="language-selector">
+                        <button class="language-btn" aria-expanded="false" aria-label="Selecionar idioma">
+                            <span class="language-flag">🇧🇷</span>
+                            <span class="language-code">PT</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-menu" aria-hidden="true">
+                            <li><button class="language-option" data-lang="pt">🇧🇷 Português</button></li>
+                            <li><button class="language-option" data-lang="en">🇺🇸 English</button></li>
+                            <li><button class="language-option" data-lang="es">🇪🇸 Español</button></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Botão Login/CTA -->
+                    <button class="btn btn--outline btn--header">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="main-content">
+        <!-- Seção Hero -->
+        <section id="home" class="section section--hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 id="hero-title" class="hero__title">
+                        <span class="hero__title-line">Desenvolvimento</span>
+                        <span class="hero__title-line hero__title-line--highlight">com CSS Moderno</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Landing page performática e acessível, construída com CSS puro e sem frameworks.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#contact" class="btn btn--primary btn--lg">
+                            <span>Começar Agora</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#about" class="btn btn--secondary btn--lg">
+                            <span>Saiba Mais</span>
+                            <i class="fas fa-book"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="code-preview" aria-hidden="true">
+                        <div class="code-preview__header">
+                            <div class="code-preview__dots">
+                                <span class="dot dot--red"></span>
+                                <span class="dot dot--yellow"></span>
+                                <span class="dot dot--green"></span>
+                            </div>
+                            <span class="code-preview__filename">style.css</span>
+                        </div>
+                        <pre class="code-preview__content"><code>:root {
+  --primary: #4361ee;
+  --spacing: clamp(1rem, 5vw, 3rem);
+}
+
+.header {
+  position: fixed;
+  height: var(--header-height);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <a href="#about" class="scroll-indicator" aria-label="Role para a próxima seção">
+                <span class="scroll-indicator__text">Explore</span>
+                <span class="scroll-indicator__arrow"></span>
+            </a>
+        </section>
+
+        <!-- Seção About -->
+        <section id="about" class="section section--about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__badge">Sobre</span>
+                    <h2 id="about-title" class="section__title">Tecnologias Modernas</h2>
+                    <p class="section__subtitle">
+                        Utilizando recursos nativos do CSS que substituem frameworks complexos.
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="feature-card__title">Custom Properties</h3>
+                        <p class="feature-card__desc">
+                            Variáveis CSS para cores, espaçamentos e valores reutilizáveis.
+                        </p>
+                        <code class="feature-card__code">--primary-color: #4361ee;</code>
+                    </article>
+                    
+                    <!-- Feature 2 -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="feature-card__title">CSS Grid & Flexbox</h3>
+                        <p class="feature-card__desc">
+                            Layouts complexos sem floats ou hacks. Totalmente responsivo.
+                        </p>
+                        <code class="feature-card__code">display: grid;</code>
+                    </article>
+                    
+                    <!-- Feature 3 -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="feature-card__title">Mobile First</h3>
+                        <p class="feature-card__desc">
+                            Design responsivo com media queries modernas e container queries.
+                        </p>
+                        <code class="feature-card__code">@media (width >= 768px)</code>
+                    </article>
+                    
+                    <!-- Feature 4 -->
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-card__title">Performance</h3>
+                        <p class="feature-card__desc">
+                            Zero JavaScript para estilos. Carregamento instantâneo.
+                        </p>
+                        <code class="feature-card__code">0ms build time</code>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Services -->
+        <section id="services" class="section section--services" aria-labelledby="services-title">
+            <div class="container">
+                <div class="section__header">
+                    <h2 id="services-title" class="section__title">Seção de Serviços</h2>
+                    <p class="section__subtitle">
+                        Esta seção demonstra o uso de Grid CSS e custom properties.
+                    </p>
+                </div>
+                
+                <div class="services-showcase">
+                    <div class="service service--design">
+                        <h3>Web Design</h3>
+                        <p>Interfaces modernas e responsivas</p>
+                    </div>
+                    <div class="service service--dev">
+                        <h3>Desenvolvimento</h3>
+                        <p>Código limpo e performático</p>
+                    </div>
+                    <div class="service service--seo">
+                        <h3>SEO</h3>
+                        <p>Otimização para mecanismos de busca</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção CTA -->
+        <section id="contact" class="section section--cta" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-card">
+                    <h2 id="cta-title" class="cta-card__title">Pronto para começar?</h2>
+                    <p class="cta-card__text">
+                        Esta landing page é 100% CSS puro. Sem frameworks, sem compilação, sem complexidade.
+                    </p>
+                    <div class="cta-card__actions">
+                        <button class="btn btn--primary btn--xl">
+                            <i class="fas fa-rocket"></i>
+                            <span>Iniciar Projeto</span>
+                        </button>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn--ghost btn--xl">
+                            <i class="fab fa-github"></i>
+                            <span>Código Fonte</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Fixo -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="#" class="logo logo--footer">
+                        <span class="logo__mark">◈</span>
+                        <span class="logo__text">ModernCSS</span>
+                    </a>
+                    <p class="footer__tagline">
+                        CSS puro, performance máxima.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__links-group">
+                        <h4 class="footer__links-title">Links Rápidos</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">Sobre</a></li>
+                            <li><a href="#services">Serviços</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__links-group">
+                        <h4 class="footer__links-title">Recursos</h4>
+                        <ul>
+                            <li><a href="#">Documentação</a></li>
+                            <li><a href="#">Tutoriais</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__links-group">
+                        <h4 class="footer__links-title">Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacidade</a></li>
+                            <li><a href="#">Termos</a></li>
+                            <li><a href="#">Cookies</a></li>
+                            <li><a href="#">Licença</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer__social">
+                    <h4 class="footer__social-title">Conecte-se</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="GitHub" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; <span id="current-year">2024</span> Modern CSS Landing. Todos os direitos reservados.
+                </p>
+                <p class="footer__credits">
+                    Feito com <i class="fas fa-heart" style="color: #e63946;"></i> e CSS puro
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botões de Scroll -->
+    <button class="scroll-btn scroll-btn--up" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <button class="scroll-btn scroll-btn--down" aria-label="Próxima seção" title="Próxima seção">
+        <i class="fas fa-chevron-down"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+    
+    <!-- Analytics (exemplo) -->
+    <script>
+        // Remover classe no-js quando JS estiver habilitado
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js-enabled');
+        
+        // Atualizar ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

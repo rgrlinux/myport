@@ -1,0 +1,387 @@
+/* ==========================================================================
+   CSS Variables - Design System
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&family=Saira:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+:root {
+  /* ===== COLORS ===== */
+  --color-primary: #4356FF;
+  --color-secondary: #394896;
+  --color-complementary-primary: #36CA56;
+  --color-complementary-secondary: #758BFF;
+  --color-dark-bg: #0a273a;
+
+  /* Background Gradient (Sincronizado com seu base.css) */
+  --color-bg-start: #0a273a;
+  --color-bg-end: #050220;
+  --gradient-primary: linear-gradient(165deg, var(--color-bg-start), var(--color-bg-end));
+
+  /* NEUTRAL */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+
+  /* TEXT ALIASES */
+  --color-text-white: var(--color-white);
+  --color-text-gray: var(--color-gray-300);
+  --color-dark-bg: var(--color-gray-900);
+
+  /* SEMANTICS */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-primary: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-secondary: 'Saira', sans-serif;
+  --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+
+  /* Modular Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.75rem;
+
+  --line-height-tight: 1.1;
+  --line-height-base: 1.5;
+  --line-height-loose: 1.75;
+
+  /* ===== SPACING & LAYOUT ===== */
+  --space-unit: 1rem;
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Header & Container */
+  --header-height: 70px;
+  --container-width: 1200px;
+  /* Use padding-inline no container usando esta variável */
+  --container-gutter: clamp(1rem, 5vw, 2rem);
+
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 9999px;
+
+  /* ===== EFFECTS ===== */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --backdrop-blur: blur(1.5rem);
+  --border-color-primary: rgba(255, 255, 255, 0.05);
+
+  /* ===== Z-INDEX ===== */
+  --z-background: -1;
+  --z-default: 0;
+  --z-fixed: 200;
+  --z-skip-link: 700;
+  --z-header: 1000;
+}/* Box sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove margens e paddings padrão de todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Configurações básicas de renderização */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Imagens e mídias responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset de formulários: herdar fontes e remover estilos padrão */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Remover estilos de lista e tabela */
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remover animações para acessibilidade (redução de movimento) */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Garante que fique sobre as outras seções */
+
+  /* Cores baseadas no seu tema escuro */
+  background-color: rgba(10, 15, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Linha superior sutil para dar acabamento */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.2rem 0;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilização dos textos */
+.footer__copy,
+.footer__design {
+  font-size: 0.85rem;
+  color: var(--color-gray-400);
+  letter-spacing: 0.05rem;
+}
+
+/* Destaque para o "CRZ." ou seu nome */
+.text-highlight {
+  color: var(--color-primary);
+  /* Usa o azul brilhante que você definiu */
+  font-weight: 700;
+}
+
+/* Ícones das Redes no Rodapé */
+.footer__social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer__social a {
+  color: var(--color-gray-400);
+  font-size: 1.2rem;
+  transition: all var(--transition-fast);
+}
+
+.footer__social a:hover {
+  color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+/* Ajuste Responsivo para o Rodapé */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Oculta as redes no footer mobile se já estiverem na Hero */
+  .footer__social {
+    order: -1;
+  }
+}.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--header-height);
+  overflow: hidden;
+
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  /* Lado do texto um pouco maior */
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hero__name {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 1.65rem;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__skills {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-xl);
+  opacity: 1;
+}
+.hero__skills p {
+  color: inherit;
+}
+
+/* Efeito na Imagem (Masked Image) */
+.hero__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100% ;
+  position: relative;
+}
+
+.hero__image img {
+  max-width: 200%;
+  /* O segredo para fundir com o fundo: */
+  mask-image: linear-gradient(to left, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+}
+
+.hero__social {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  font-size: 1.8rem;
+}
+
+.hero__social a {
+  color:var(--color-white);
+  width: 32px;
+  height: 32px;
+  transform: translateY(-2px);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__social a:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+.hero__social a svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Media Query para Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    /* Dá espaço para o header fixo */
+    text-align: center;
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    /* Muda para uma coluna só */
+    gap: var(--space-xl);
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+    /* Diminui o título para não quebrar linha errado */
+    line-height: 1.1;
+  }
+
+  .hero__name {
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    /* Reduz drasticamente o espaçamento no mobile */
+    margin-bottom: var(--space-lg);
+    display: block;
+    /* Garante que ocupe a linha toda */
+  }
+
+  .hero__skills {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /* Melhora o espaçamento entre as categorias */
+    padding: 0 10px;
+  }
+
+  .hero__social {
+    justify-content: center;
+    /* Centraliza os ícones no mobile */
+    margin-top: var(--space-md);
+  }
+
+  .hero__image {
+    order: -1;
+    /* Joga a imagem para cima do texto no mobile (opcional) */
+    justify-content: center;
+  }
+
+  .hero__image img {
+    width: 80%;
+    /* Reduz o tamanho da imagem no mobile */
+    transform: translateX(0);
+    /* Remove o deslocamento lateral */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
