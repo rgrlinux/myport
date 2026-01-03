@@ -1,0 +1,148 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--header-height);
+  overflow: hidden;
+
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  /* Lado do texto um pouco maior */
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hero__name {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 1.65rem;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__skills {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-xl);
+  opacity: 1;
+}
+.hero__skills p {
+  color: inherit;
+}
+
+/* Efeito na Imagem (Masked Image) */
+.hero__image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100% ;
+  position: relative;
+}
+
+.hero__image img {
+  max-width: 200%;
+  /* O segredo para fundir com o fundo: */
+  mask-image: linear-gradient(to left, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+}
+
+.hero__social {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  font-size: 1.8rem;
+}
+
+.hero__social a {
+  color:var(--color-white);
+  width: 32px;
+  height: 32px;
+  transform: translateY(-2px);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__social a:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+.hero__social a svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Media Query para Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    /* Dá espaço para o header fixo */
+    text-align: center;
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    /* Muda para uma coluna só */
+    gap: var(--space-xl);
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+    /* Diminui o título para não quebrar linha errado */
+    line-height: 1.1;
+  }
+
+  .hero__name {
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    /* Reduz drasticamente o espaçamento no mobile */
+    margin-bottom: var(--space-lg);
+    display: block;
+    /* Garante que ocupe a linha toda */
+  }
+
+  .hero__skills {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /* Melhora o espaçamento entre as categorias */
+    padding: 0 10px;
+  }
+
+  .hero__social {
+    justify-content: center;
+    /* Centraliza os ícones no mobile */
+    margin-top: var(--space-md);
+  }
+
+  .hero__image {
+    order: -1;
+    /* Joga a imagem para cima do texto no mobile (opcional) */
+    justify-content: center;
+  }
+
+  .hero__image img {
+    width: 80%;
+    /* Reduz o tamanho da imagem no mobile */
+    transform: translateX(0);
+    /* Remove o deslocamento lateral */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
