@@ -2,8 +2,9 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -11,33 +12,31 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.7.0'
+          node-version: 20
+          cache: 'npm'
 
-      - name: Install
-        run: npm install
+      - name: Install dependencies
+        run: npm ci # Usa o npm ci para uma instalação limpa e idêntica ao seu package-lock.json
 
       - name: Build project
-        run: npm run build
+        run: npx vite build # Usamos 'npx' para garantir que o sistema encontre o executável do vite
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
-          clean: true
-
-      - name: Audit Preview URL wiht Lighthouse
+      - name: Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: http://localhost:5173
-          uploadArtifacts: true
+          staticDistDir: ./dist
           temporaryPublicStorage: true
-          configPath: .lighthouserc.json
+
+      - name: Deploy to GH Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
