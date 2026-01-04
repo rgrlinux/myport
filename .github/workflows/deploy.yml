@@ -33,3 +33,11 @@ jobs:
           branch: gh-pages
           folder: dist
           clean: true
+
+      - name: Audit Preview URL wiht Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: http://localhost:5173
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: .lighthouserc.json
