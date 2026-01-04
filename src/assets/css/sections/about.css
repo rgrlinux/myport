@@ -166,7 +166,7 @@
     flex-direction: row-reverse;
     transition: all 1s ease-out;
     & svg {
-        transform: translateX(-0.5rem);
+        transform: translateX(-0.5rem) and scale(1.5);
     }
 }
 
