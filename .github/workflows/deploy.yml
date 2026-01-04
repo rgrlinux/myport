@@ -18,16 +18,17 @@ jobs:
         with:
           node-version: '22.7.0'
       
-      - run: npm install
+      - run: npm install -g serve
       - run: npm run build
+      - run: serve -s -l 5173 dist &
 
       - name: Audit Preview URL wiht Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
-          staticDistDir: ./dist
+          urls: http://localhost:5173/
           uploadArtifacts: true
           temporaryPublicStorage: true
-          configPath: .lighthouserc.json
+          configPath: ./.lighthouserc.json
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
