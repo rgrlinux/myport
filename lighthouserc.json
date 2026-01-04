@@ -1,7 +1,7 @@
 {
     "ci": {
         "collect": {
-            "staticDir": "./dist"
+            "staticDistDir": "./dist"
         },
         "assert": {
             "assertions": {

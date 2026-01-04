@@ -2,8 +2,9 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -11,33 +12,26 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22.7.0'
-
-      - name: Install
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
-          clean: true
+      
+      - run: npm install
+      - run: npm run build
 
       - name: Audit Preview URL wiht Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: http://localhost:5173
+          staticDistDir: ./dist
           uploadArtifacts: true
           temporaryPublicStorage: true
           configPath: .lighthouserc.json
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
