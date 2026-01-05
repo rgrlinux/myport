@@ -51,13 +51,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 100%;
-  width: 100% ;
   position: relative;
 }
 
 .hero__image img {
-  max-width: 200%;
+  max-width: 150%;
   /* O segredo para fundir com o fundo: */
   mask-image: linear-gradient(to left, black 70%, transparent 100%);
   -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
